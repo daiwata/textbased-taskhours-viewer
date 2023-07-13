@@ -1,0 +1,17 @@
+[
+    { 
+        "type": "顧客先業務", 
+        "sepPlan": "=", 
+        "sepDone": "*"
+    },
+    { 
+        "type": "社内業務", 
+        "sepPlan": "-", 
+        "sepDone": "+"
+    },
+    { 
+        "type": "自習", 
+        "sepPlan": ">", 
+        "sepDone": "@"
+    }
+]

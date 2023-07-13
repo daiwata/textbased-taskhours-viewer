@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Time Aggregater</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript">
+    eel.expose(updateHTML);
+    function updateHTML(content) {
+        document.getElementById('content').innerHTML = content;
+    }
+    </script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+table,
+tr,
+th,
+td {
+    border-collapse: collapse;
+    border: 1px solid #cccccc;
+    padding: 2px;
+    margin: 2px;
+    vertical-align: top;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+th.level0 {
+    min-width: 120px;
+}
+
+th.level1 {
+    min-width: 70px;
+}
+
+th.level2 {
+    min-width: 120px;
+}
+
+th.level3 {
+    min-width: 240px;
+}
+
+th.level4 {
+    min-width: 60px;
+}
