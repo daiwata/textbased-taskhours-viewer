@@ -10,7 +10,7 @@
         "sepDone": "+"
     },
     { 
-        "type": "自習", 
+        "type": "タスク分類３", 
         "sepPlan": ">", 
         "sepDone": "@"
     }

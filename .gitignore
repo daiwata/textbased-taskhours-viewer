@@ -1,5 +1,5 @@
 env/
-input/
 build/
 dist/
 __pycache__/
+out.json
