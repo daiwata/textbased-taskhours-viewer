@@ -8,6 +8,7 @@ import aggr
 import conv
 
 DATA_CONFS = json.load(open('settings.json', 'r', encoding='utf-8'))
+OUTJSON_PATH = "output/out.json"
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -27,12 +28,27 @@ def writeFile(filepath, jsonBody):
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(json.dumps(jsonBody, ensure_ascii=False))
 
+def readFile(filepath):
+    if not os.path.exists(filepath): return ""
+    f =  open(filepath, 'r', encoding='utf-8') 
+    contents = f.read()
+    f.close()
+    return contents
+    
 # This function will run in a separate thread
 def watch_folder(folder_path):
     while True:
         outJson = aggr.analyzeTxt()
 
-        # Generate the detail HTML
+        outJsonStr = json.dumps(outJson, ensure_ascii=False)
+        beforeJsonStr = readFile(OUTJSON_PATH)
+        
+        if outJsonStr == beforeJsonStr: 
+            time.sleep(1)
+            continue
+
+        writeFile(OUTJSON_PATH, outJson)
+        
         detail_html = conv.json_to_html(outJson)
         writeFile("output/detail.html", detail_html)
         eel.updateDetailHTML(detail_html)  
@@ -43,7 +59,9 @@ def watch_folder(folder_path):
         writeFile("output/filebase_aggregated.html", filebase_aggregated_html)
         eel.updateFilebaseAggregatedHTML(filebase_aggregated_html)
 
-        time.sleep(1)  # sleep for 1 second
+        time.sleep(1)
+
+if os.path.exists(OUTJSON_PATH): os.remove(OUTJSON_PATH)
 
 # Start the watcher thread
 threading.Thread(target=watch_folder, args=(os.path.join(os.getcwd(), 'input'),), daemon=True).start()
