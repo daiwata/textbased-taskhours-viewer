@@ -51,9 +51,11 @@ def watch_folder(folder_path):
 
         writeFile(OUTJSON_PATH, outJson)
         
-        detail_html = conv_detail.json_to_html(outJson)
+        detail_data = conv_detail.detail_aggregate_data(outJson)
+        writeFile("output/detail.json", detail_data)
+        detail_html = conv_detail.detail_json_to_html(detail_data)
         writeFile("output/detail.html", detail_html)
-        eel.updateDetailHTML(detail_html)  
+        eel.updateDetailHTML(detail_html)
 
         # Generate the filebase aggregated HTML
         filebase_aggregated_data = conv_filebase.filebase_aggregate_data(outJson)
