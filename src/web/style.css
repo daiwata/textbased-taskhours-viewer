@@ -36,3 +36,13 @@ th.level3 {
 th.level4 {
     min-width: 60px;
 }
+
+tr.total td {
+    color: maroon;
+    font-weight: bold;
+}
+
+tr.total th {
+    background-color: #dddddd;
+    color: black;
+}

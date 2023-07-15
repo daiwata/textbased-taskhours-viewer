@@ -12,6 +12,8 @@ def monthly_aggregate_data(data):
                 for task, task_data in tasks.items():
                     for key, val in task_data.items():
                         try:
+                            monthly_aggregated_data[year_month]['month_total'][key] = monthly_aggregated_data[year_month].get('month_total', {}).get(key, 0) + val
+                            monthly_aggregated_data[year_month][category]['category_total'][key] = monthly_aggregated_data[year_month][category].get('category_total', {}).get(key, 0) + val
                             monthly_aggregated_data[year_month][category][task][key] = monthly_aggregated_data[year_month][category][task].get(key, 0) + val
                         except TypeError:
                             print(f"Error with year_month={year_month}, category={category}, task={task}, key={key}, val={val}")
@@ -40,7 +42,8 @@ def json_to_html_monthly_aggregated(data, depth=0):
         else:
             html = '<table><tbody>'
             for key, val in data.items():
-                html += '<tr><th class="level' + str(depth+1) + '">' + str(key) + '</th><td>' + json_to_html_monthly_aggregated(val, depth+1) + '</td></tr>'
+                html += '<tr class="total">' if "_total" in key else '<tr>'
+                html += '<th class="level' + str(depth+1) + '">' + str(key) + '</th><td>' + json_to_html_monthly_aggregated(val, depth+1) + '</td></tr>'
             html += '</tbody></table>'
         return html
     else:
