@@ -20,6 +20,15 @@
             document.getElementById('detail-content').innerHTML = content;
         }
     </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            eel.get_current_html()(function(current_html) {
+                updateDetailHTML(current_html["detail"]);
+                updateFilebaseAggregatedHTML(current_html["filebase_aggregated"]);
+                updateMonthlyAggregatedHTML(current_html["monthly_aggregated"]);
+            });
+        };
+    </script>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
