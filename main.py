@@ -5,7 +5,9 @@ import time
 import json
 import sys
 import aggr
-import conv
+import conv_detail
+import conv_filebase
+import conv_monthly
 
 DATA_CONFS = json.load(open('settings.json', 'r', encoding='utf-8'))
 OUTJSON_PATH = "output/out.json"
@@ -49,15 +51,21 @@ def watch_folder(folder_path):
 
         writeFile(OUTJSON_PATH, outJson)
         
-        detail_html = conv.json_to_html(outJson)
+        detail_html = conv_detail.json_to_html(outJson)
         writeFile("output/detail.html", detail_html)
         eel.updateDetailHTML(detail_html)  
 
         # Generate the filebase aggregated HTML
-        filebase_aggregated_data = conv.filebase_aggregate_data(outJson)
-        filebase_aggregated_html = conv.json_to_html_aggregated(filebase_aggregated_data)
+        filebase_aggregated_data = conv_filebase.filebase_aggregate_data(outJson)
+        filebase_aggregated_html = conv_filebase.json_to_html_filebased_aggregated(filebase_aggregated_data)
         writeFile("output/filebase_aggregated.html", filebase_aggregated_html)
         eel.updateFilebaseAggregatedHTML(filebase_aggregated_html)
+
+        # Generate the monthly aggregated HTML
+        monthly_aggregated_data = conv_monthly.monthly_aggregate_data(outJson)
+        monthly_aggregated_html = conv_monthly.json_to_html_monthly_aggregated(monthly_aggregated_data)
+        writeFile("output/monthly_aggregated.html", monthly_aggregated_html)
+        eel.updateMonthlyAggregatedHTML(monthly_aggregated_html)
 
         time.sleep(1)
 

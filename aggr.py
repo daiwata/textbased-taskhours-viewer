@@ -53,15 +53,27 @@ def calcDateStr(lineStr, dateStr):
     return dateStr
 
 def analyzeTxt():
-    data = {}
+    temp_data = {}
     dateStr = ""
     pathList = glob.glob("input/*.txt")
     for fPath in pathList:
         with open(fPath, 'r', encoding='utf-8') as f:
             for lineRaw in f:
-                fName = os.path.basename(fPath) 
+                fName = os.path.basename(fPath)
                 lineStr = lineRaw.strip()
-                dateStr = calcDateStr(lineStr, dateStr);
-                data = addLineResult(data, fName, dateStr, lineStr)
-    data.pop("savedTaskName")
+                dateStr = calcDateStr(lineStr, dateStr)
+                temp_data = addLineResult(temp_data, fName, dateStr, lineStr)
+    temp_data.pop("savedTaskName", None)
+
+    # Sort temp_data by date and each file's data by date in descending order and add to the final data dictionary
+    data = {}
+    # Sort file names in descending order
+    sorted_files = sorted(temp_data.keys(), reverse=True)
+    for fName in sorted_files:
+        date_data = temp_data[fName]
+        # Sort dates in descending order
+        sorted_dates = sorted(date_data.keys(), reverse=True)
+        sorted_date_data = {date: date_data[date] for date in sorted_dates}
+        data[fName] = sorted_date_data
+
     return data

@@ -11,6 +11,10 @@
         function updateFilebaseAggregatedHTML(content) {
             document.getElementById('filebase-aggregated-content').innerHTML = content;
         }
+        eel.expose(updateMonthlyAggregatedHTML);
+        function updateMonthlyAggregatedHTML(content) {
+            document.getElementById('monthly-aggregated-content').innerHTML = content;
+        }
         eel.expose(updateDetailHTML);
         function updateDetailHTML(content) {
             document.getElementById('detail-content').innerHTML = content;
@@ -25,12 +29,18 @@
                 <a class="nav-link active" id="filebase-aggregated-tab" data-toggle="tab" href="#filebase-aggregated">Filebase Aggregated</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" id="monthly-aggregated-tab" data-toggle="tab" href="#monthly-aggregated">Monthly Aggregated</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="detail-tab" data-toggle="tab" href="#detail">Detail</a>
             </li>
         </ul>
         <div class="tab-content">
             <div id="filebase-aggregated" class="tab-pane fade show active">
                 <div id="filebase-aggregated-content"></div>
+            </div>
+            <div id="monthly-aggregated" class="tab-pane fade">
+                <div id="monthly-aggregated-content"></div>
             </div>
             <div id="detail" class="tab-pane fade">
                 <div id="detail-content"></div>
