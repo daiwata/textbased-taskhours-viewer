@@ -7,6 +7,7 @@ td {
     padding: 2px;
     margin: 2px;
     vertical-align: top;
+    word-wrap: break-word;
 }
 
 td {
@@ -19,22 +20,29 @@ th {
 
 th.level0 {
     min-width: 120px;
+    padding: 5px 10px;
 }
 
 th.level1 {
     min-width: 70px;
+    padding: 5px 10px;
 }
 
 th.level2 {
     min-width: 120px;
+    padding: 5px 10px;
 }
 
 th.level3 {
-    min-width: 240px;
+    min-width: 280px;
+    max-width: 280px;
+    padding: 5px 10px;
+    text-align: left;
 }
 
 th.level4 {
     min-width: 60px;
+    padding: 5px 10px;
 }
 
 tr.total td {
