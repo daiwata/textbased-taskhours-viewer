@@ -1,7 +1,5 @@
 from collections import defaultdict
-from collections import OrderedDict
-
-from collections import defaultdict
+from datetime import datetime
 
 def detail_aggregate_data(data):
     detail_aggregated_data = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(float)))))
@@ -31,6 +29,15 @@ def detail_aggregate_data(data):
                             raise
     return detail_aggregated_data
 
+def is_date(string):
+    """
+    Check if the string is a date.
+    """
+    try:
+        datetime.strptime(string, "%Y/%m/%d")
+        return True
+    except ValueError:
+        return False
 
 def detail_json_to_html(data, depth=0):
     """
@@ -47,7 +54,16 @@ def detail_json_to_html(data, depth=0):
             html += '</tr></tbody></table>'
         else:
             html = '<table><tbody>'
-            for key, val in data.items():
+            # Separate date keys and other keys
+            date_keys = [key for key in data.keys() if is_date(key)]
+            non_date_keys = [key for key in data.keys() if not is_date(key)]
+            # If there are any date keys, sort them
+            if date_keys:
+                date_keys = sorted(date_keys, key=lambda x: datetime.strptime(x, "%Y/%m/%d"), reverse=True)
+            # Combine keys: non-date keys first, then sorted date keys
+            keys = non_date_keys + date_keys
+            for key in keys:
+                val = data[key]
                 html += '<tr class="total">' if "_total" in key else '<tr>'
                 html += '<th class="level' + str(depth+1) + '">' + str(key) + '</th><td>' + detail_json_to_html(val, depth+1) + '</td></tr>'
             html += '</tbody></table>'
