@@ -175,7 +175,7 @@ For example, in the following case, it is 1 hour as an internal business.
 txt
 2023/6/2
 9   10  11  12  13  14  15  16  17  18  19
-==== Internal Online Meeting
+---- Internal Online Meeting
 ++++
 
 
