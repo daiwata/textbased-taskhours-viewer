@@ -71,11 +71,11 @@ The following represents that the actual work for task 1 was 1 hour on June 1, 2
 
 example1.txt
 
-txt
+```txt
 2023/6/1
 
  **** Task 1
-
+```
 
 - Each `*` counts as 15 minutes (0.25 hours) of actual work.
 - Write multiple symbols and then write the task name after leaving a space.
@@ -86,12 +86,12 @@ The following represents that the planned and actual work for task 1 was 1 hour 
 
 example1.txt
 
-txt
+```txt
 2023/6/1
 
  ==== Task 1
  ****
-
+```
 
 - Each `=` counts as 15 minutes (0.25 hours) of planned work.
 - For `*` on the next line of `=`, the task name can be omitted.
@@ -100,13 +100,13 @@ txt
 
 The following represents that the planned and actual work for task 1 was 1 hour, the planned work for task 2 was 0.5 hours, and the actual work was 0 hours on June 1, 2023.
 
-txt
+```txt
 2023/6/1
 
  ===  = Task 1
   ***  *
     == Task 2
-
+```
 
 - You can write multiple tasks as shown above.
 - Symbols can be continued in the line by leaving a space.
@@ -116,7 +116,7 @@ txt
 
 To describe multiple dates, do as follows.
 
-txt
+```txt
 2023/6/2
 
  === Task 2
@@ -128,6 +128,7 @@ txt
   ***  *
     == Task 2
      ** **
+```
 
 
 - In this case, in the monthly and file unit aggregation, task 2 will be planned for 1.25 hours and actual 2.25 hours.
@@ -136,21 +137,21 @@ txt
 
 Having a scale makes it easy to plan and make it clear when and what was done.
 
-txt
+```txt
 2023/6/2
 9   10  11  12  13  14  15  16  17  18  19
 
 ============    =============== Task 1
 ************    ***************
                                ===== Task 2
-
+```
 
 ### Example 6）
 
 Categories can be set for planned and actual.
 It can be edited in app/setting.json.
 
-json
+```json
 [
     { 
         "type": "Customer Business", 
@@ -168,16 +169,16 @@ json
         "sepDone": "@"
     }
 ]
-
+```
 
 For example, in the following case, it is 1 hour as an internal business.
 
-txt
+```txt
 2023/6/2
 9   10  11  12  13  14  15  16  17  18  19
 ---- Internal Online Meeting
 ++++
-
+```
 
 ### Example 7）
 
