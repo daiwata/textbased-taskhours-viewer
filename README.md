@@ -16,13 +16,15 @@ Download and decompress this Project from "Code -> Download ZIP"
 
 In explorer, go to the app directory and double click on the "TaskhourView.exe" file.
 
-## Prerequisites
+## Running in Python
+
+### Prerequisites
 
 - [Git](https://git-scm.com/)
 - [Python 3.11](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installation/)
 
-## Installation
+### Installation
 
 Clone the project:
 
@@ -49,7 +51,7 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
-## Running the App
+### Running the App
 
 Navigate to the src directory and execute the main.py file:
 

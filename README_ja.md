@@ -10,20 +10,22 @@
 - 集計データをHTML形式で出力・表示します。
 - テキストが変更されると、集計データをリアルタイムに更新し表示します。
 
-## EXEの実行（Windows）
+## EXEでの実行（Windows）
 
 "Code -> Download ZIP"からこのプロジェクトをダウンロードし、解凍します。
 
 エクスプローラでアプリディレクトリに移動し、"TaskhourView.exe" ファイルをダブルクリックします。
 
 
-## 必要なもの
+## Pythonでの実行
+
+### 必要なもの
 
 - [Git](https://git-scm.com/)
 - [Python 3.11](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installation/)
 
-## インストール
+### インストール
 
 プロジェクトをクローンします：
 
@@ -50,7 +52,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## アプリケーションの実行
+### アプリケーションの実行
 
 srcディレクトリに移動してmain.pyファイルを実行します：
 
