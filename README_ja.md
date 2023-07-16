@@ -69,7 +69,7 @@ input ディレクトリにテキストファイルを用意します。
 
 以下は、2023/6/1 に、タスク1の実績が1時間だったことを表します。
 
-example1.txt
+**example1.txt**
 
 ```txt
 2023/6/1
@@ -84,7 +84,7 @@ example1.txt
 
 以下は、2023/6/1 に、タスク1の予定が1時間、実績が1時間だったことを表します。
 
-example1.txt
+**example2.txt**
 
 ```txt
 2023/6/1
@@ -100,7 +100,7 @@ example1.txt
 ### 例3）
 
 以下は、2023/6/1 に、タスク1の予実が1時間、タスク2の予定が0.5時間、実績が0時間だったことを表します。
-
+**example3.txt**
 
 ```txt
 2023/6/1
@@ -118,6 +118,8 @@ example1.txt
 ### 例4）
 
 複数の日付の記載する場合は以下のようにします。
+
+**example4.txt**
 
 ```txt
 2023/6/2
@@ -138,7 +140,9 @@ example1.txt
 
 ### 例5）
 
-目盛りをつけておくと予定が立てやすいし、いつ何をしたのかが明確になります。
+時間の目盛りをつけておくと予定が立てやすいし、いつ何をしたのかが明確になります。
+
+**example5.txt**
 
 ```txt
 2023/6/2
@@ -149,11 +153,15 @@ example1.txt
                                ===== タスク2
 ```
 
+上記の `9   10  11  12 ...` の行は集計処理に関係ありません。
+
 
 ### 例6）
 
 予定と実績にはカテゴリが設定できます。  
 app/setting.json で編集できます。
+
+**app/setting.json**
 
 ```json
 [
@@ -175,6 +183,7 @@ app/setting.json で編集できます。
 ```
 
 たとえば、以下の場合は社内業務として予実が1時間です。
+**example6.txt**
 
 ```txt
 2023/6/2
@@ -188,8 +197,9 @@ app/setting.json で編集できます。
 複数のテキストファイルを設置できます。  
 業務のフェーズ単位なでファイルを分けると管理しやすいです。
 
-- [サンプルファイル1](app/input/Sample_Phase1.txt)
-- [サンプルファイル2](app/input/Sample_Phase2.txt)
+- app/input/ 
+  - [Sample_Phase1.txt](app/input/Sample_Phase1.txt)
+  - [Sample_Phase2.txt](app/input/Sample_Phase2.txt)
 
 
 ## Windows用にEXEファイルを作成

@@ -69,7 +69,7 @@ Prepare text files in the input directory.
 
 The following represents that the actual work for task 1 was 1 hour on June 1, 2023.
 
-example1.txt
+**example1.txt**
 
 ```txt
 2023/6/1
@@ -84,7 +84,7 @@ example1.txt
 
 The following represents that the planned and actual work for task 1 was 1 hour on June 1, 2023.
 
-example1.txt
+**example2.txt**
 
 ```txt
 2023/6/1
@@ -99,6 +99,8 @@ example1.txt
 ### Example 3）
 
 The following represents that the planned and actual work for task 1 was 1 hour, the planned work for task 2 was 0.5 hours, and the actual work was 0 hours on June 1, 2023.
+
+**example3.txt**
 
 ```txt
 2023/6/1
@@ -115,6 +117,8 @@ The following represents that the planned and actual work for task 1 was 1 hour,
 ### Example 4）
 
 To describe multiple dates, do as follows.
+
+**example4.txt**
 
 ```txt
 2023/6/2
@@ -137,6 +141,8 @@ To describe multiple dates, do as follows.
 
 Having a scale makes it easy to plan and make it clear when and what was done.
 
+**example5.txt**
+
 ```txt
 2023/6/2
 9   10  11  12  13  14  15  16  17  18  19
@@ -146,10 +152,14 @@ Having a scale makes it easy to plan and make it clear when and what was done.
                                ===== Task 2
 ```
 
+The above `9 10 11 12 ... ` rows are not relevant to the tabulation process.
+
 ### Example 6）
 
 Categories can be set for planned and actual.
 It can be edited in app/setting.json.
+
+**app/setting.json**
 
 ```json
 [
@@ -173,6 +183,8 @@ It can be edited in app/setting.json.
 
 For example, in the following case, it is 1 hour as an internal business.
 
+**example6.txt**
+
 ```txt
 2023/6/2
 9   10  11  12  13  14  15  16  17  18  19
@@ -185,9 +197,9 @@ For example, in the following case, it is 1 hour as an internal business.
 Multiple text files can be placed.
 It is easy to manage by dividing files by business phase.
 
-- [Sample File 1](app/input/Sample_Phase1.txt)
-- [Sample File 2](app/input/Sample_Phase2.txt)
-
+- app/input/ 
+  - [Sample_Phase1.txt](app/input/Sample_Phase1.txt)
+  - [Sample_Phase2.txt](app/input/Sample_Phase2.txt)
 
 
 ## Compile to EXE for Windows
