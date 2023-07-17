@@ -8,6 +8,9 @@ import aggr
 import conv_detail
 import conv_filebase
 import conv_monthly
+import aggregate_detail
+import aggregate_filebase
+import aggregate_monthly
 
 DATA_CONFS = json.load(open('settings.json', 'r', encoding='utf-8'))
 OUTJSON_PATH = "output/out.json"
@@ -60,7 +63,7 @@ def watch_folder(folder_path):
 
         writeFile(OUTJSON_PATH, outJson)
         
-        detail_data = conv_detail.detail_aggregate_data(outJson)
+        detail_data = aggregate_detail.detail_aggregate_data(outJson)
         writeFile("output/detail.json", detail_data)
         detail_html = conv_detail.detail_json_to_html(detail_data)
         writeFile("output/detail.html", detail_html)
@@ -68,7 +71,7 @@ def watch_folder(folder_path):
         eel.updateDetailHTML(detail_html)
 
         # Generate the filebase aggregated HTML
-        filebase_aggregated_data = conv_filebase.filebase_aggregate_data(outJson)
+        filebase_aggregated_data = aggregate_filebase.filebase_aggregate_data(outJson)
         writeFile("output/filebase_aggregated.json", filebase_aggregated_data)
         filebase_aggregated_html = conv_filebase.json_to_html_filebased_aggregated(filebase_aggregated_data)
         writeFile("output/filebase_aggregated.html", filebase_aggregated_html)
@@ -76,7 +79,7 @@ def watch_folder(folder_path):
         eel.updateFilebaseAggregatedHTML(filebase_aggregated_html)
 
         # Generate the monthly aggregated HTML
-        monthly_aggregated_data = conv_monthly.monthly_aggregate_data(outJson)
+        monthly_aggregated_data = aggregate_monthly.monthly_aggregate_data(outJson)
         writeFile("output/monthly_aggregated.json", monthly_aggregated_data)
         monthly_aggregated_html = conv_monthly.json_to_html_monthly_aggregated(monthly_aggregated_data)
         writeFile("output/monthly_aggregated.html", monthly_aggregated_html)
