@@ -1,26 +1,20 @@
 # Textbased Taskhour View
-
-テキスト形式で入力された予定・実績時間をHTML表示するシンプルなツールです。
-
+テキスト形式で入力された予定・実績時間をHTML表示するシンプルなツールです。  
 ![](capt.png)
 
 ## 特徴
-
 - カテゴリー、ファイルベース、日次、月次によるタスク時間の集計します。
 - 集計データをHTML形式で出力・表示します。
 - テキストが変更されると、集計データをリアルタイムに更新し表示します。
 
 ## EXEでの実行（Windows）
-
-"Code -> Download ZIP"からこのプロジェクトをダウンロードし、解凍します。
-
-エクスプローラでアプリディレクトリに移動し、"TaskhourView.exe" ファイルをダブルクリックします。
-
+"Code -> Download ZIP" からこのプロジェクトをダウンロードし、解凍します。  
+エクスプローラでアプリディレクトリに移動し、"TaskhourView.exe" ファイルをダブルクリックします。  
+すると Taskhours View のウインドウが起動し、集計結果が表示されます。
 
 ## Pythonでの実行
 
-### 必要なもの
-
+### 必要なもの  
 - [Git](https://git-scm.com/)
 - [Python 3.11](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installation/)
@@ -60,6 +54,9 @@ srcディレクトリに移動してmain.pyファイルを実行します：
 cd src
 python main.py
 ```
+
+すると Taskhours View のウインドウが起動し、集計結果が表示されます。
+
 
 ## テキストファイルの編集方法
 
@@ -183,6 +180,7 @@ app/setting.json で編集できます。
 ```
 
 たとえば、以下の場合は社内業務として予実が1時間です。
+
 **example6.txt**
 
 ```txt
@@ -195,7 +193,7 @@ app/setting.json で編集できます。
 ### 例7）
 
 複数のテキストファイルを設置できます。  
-業務のフェーズ単位なでファイルを分けると管理しやすいです。
+業務のフェーズ単位などでファイルを分けると管理しやすいです。
 
 - app/input/ 
   - [Sample_Phase1.txt](app/input/Sample_Phase1.txt)
@@ -220,7 +218,7 @@ pyinstaller -wF --add-data="web/*;web/" main.py --clean --distpath . -n Taskhour
 
 ## コントリビューション
 
-プルリクエストは大歓迎です。大きな変更の場合は、まず問題を開いて変更したい内容について議論してください。
+プルリクエストは大歓迎です。大きな変更の場合は、まずIssueをOpenにして変更したい内容について議論してください。
 
 ## ライセンス
 
