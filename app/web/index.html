@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        eel.expose(updateFilebaseAggregatedHTML);
-        function updateFilebaseAggregatedHTML(content) {
+        eel.expose(filebase_aggregated);
+        function filebase_aggregated(content) {
             document.getElementById('filebase-aggregated-content').innerHTML = content;
         }
-        eel.expose(updateMonthlyAggregatedHTML);
-        function updateMonthlyAggregatedHTML(content) {
+        eel.expose(monthly_aggregated);
+        function monthly_aggregated(content) {
             document.getElementById('monthly-aggregated-content').innerHTML = content;
         }
-        eel.expose(updateDetailHTML);
-        function updateDetailHTML(content) {
+        eel.expose(detail_aggregated);
+        function detail_aggregated(content) {
             document.getElementById('detail-content').innerHTML = content;
         }
     </script>
     <script type="text/javascript">
         window.onload = function() {
             eel.get_current_html()(function(current_html) {
-                updateDetailHTML(current_html["detail"]);
-                updateFilebaseAggregatedHTML(current_html["filebase_aggregated"]);
-                updateMonthlyAggregatedHTML(current_html["monthly_aggregated"]);
+                detail_aggregated(current_html["detail_aggregated"]);
+                filebase_aggregated(current_html["filebase_aggregated"]);
+                monthly_aggregated(current_html["monthly_aggregated"]);
             });
         };
     </script>
