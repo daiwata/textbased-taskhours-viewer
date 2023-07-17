@@ -1,15 +1,5 @@
-from collections import defaultdict
 from datetime import datetime
-
-def is_date(string):
-    """
-    Check if the string is a date.
-    """
-    try:
-        datetime.strptime(string, "%Y/%m/%d")
-        return True
-    except ValueError:
-        return False
+import utils
 
 def detail_json_to_html(data, depth=0):
     """
@@ -27,8 +17,8 @@ def detail_json_to_html(data, depth=0):
         else:
             html = '<table><tbody>'
             # Separate date keys and other keys
-            date_keys = [key for key in data.keys() if is_date(key)]
-            non_date_keys = [key for key in data.keys() if not is_date(key)]
+            date_keys = [key for key in data.keys() if utils.is_date(key)]
+            non_date_keys = [key for key in data.keys() if not utils.is_date(key)]
             # If there are any date keys, sort them
             if date_keys:
                 date_keys = sorted(date_keys, key=lambda x: datetime.strptime(x, "%Y/%m/%d"), reverse=True)

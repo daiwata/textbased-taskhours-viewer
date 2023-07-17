@@ -1,7 +1,7 @@
 from collections import defaultdict
 from datetime import datetime
 
-def detail_aggregate_data(data):
+def aggregate_detail(data):
     detail_aggregated_data = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(float)))))
     for file_name, date_data in data.items():
         for date, categories in date_data.items():

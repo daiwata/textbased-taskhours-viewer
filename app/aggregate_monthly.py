@@ -2,7 +2,7 @@ from collections import defaultdict
 from collections import OrderedDict
 from datetime import datetime 
 
-def monthly_aggregate_data(data):
+def aggregate_monthly(data):
     monthly_aggregated_data = defaultdict(lambda: defaultdict(lambda: defaultdict(OrderedDict)))
     for file_name, date_data in data.items():
         for date_str, categories in date_data.items():

@@ -1,6 +1,3 @@
-from collections import defaultdict
-from collections import OrderedDict
-
 def json_to_html_filebased_aggregated(data, depth=0):
     """
     Generate HTML from the filebase aggregated data dictionary.

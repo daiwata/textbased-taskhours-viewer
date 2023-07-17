@@ -1,7 +1,3 @@
-from collections import defaultdict
-from collections import OrderedDict
-from datetime import datetime 
-
 def json_to_html_monthly_aggregated(data, depth=0):
     """
     Generate HTML from the monthly aggregated data dictionary.
