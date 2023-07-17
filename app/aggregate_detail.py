@@ -1,5 +1,4 @@
 from collections import defaultdict
-from datetime import datetime
 
 def aggregate_detail(data):
     results = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(float)))))
