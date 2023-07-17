@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def is_date(string):
     """
     Check if the string is a date.

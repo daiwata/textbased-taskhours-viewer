@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Taskhours View</title>
     <script type="text/javascript" src="/eel.js"></script>
@@ -21,8 +22,8 @@
         }
     </script>
     <script type="text/javascript">
-        window.onload = function() {
-            eel.get_current_html()(function(current_html) {
+        window.onload = function () {
+            eel.get_current_html()(function (current_html) {
                 detail_aggregated(current_html["detail_aggregated"]);
                 filebase_aggregated(current_html["filebase_aggregated"]);
                 monthly_aggregated(current_html["monthly_aggregated"]);
@@ -31,14 +32,17 @@
     </script>
     <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" id="filebase-aggregated-tab" data-toggle="tab" href="#filebase-aggregated">Filebase Aggregated</a>
+                <a class="nav-link active" id="filebase-aggregated-tab" data-toggle="tab"
+                    href="#filebase-aggregated">Filebase Aggregated</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="monthly-aggregated-tab" data-toggle="tab" href="#monthly-aggregated">Monthly Aggregated</a>
+                <a class="nav-link" id="monthly-aggregated-tab" data-toggle="tab" href="#monthly-aggregated">Monthly
+                    Aggregated</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="detail-tab" data-toggle="tab" href="#detail">Detail</a>
@@ -57,4 +61,5 @@
         </div>
     </div>
 </body>
+
 </html>
