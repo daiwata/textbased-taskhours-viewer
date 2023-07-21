@@ -16,20 +16,13 @@ class MonthlyAggregation(AggregationStrategy):
                         for key, val in task_data.items():
                             try:
                                 results[year_month]["month_total"][key] = (
-                                    results[year_month]
-                                    .get("month_total", {})
-                                    .get(key, 0)
-                                    + val
+                                    results[year_month].get("month_total", {}).get(key, 0) + val
                                 )
                                 results[year_month][category]["category_total"][key] = (
-                                    results[year_month][category]
-                                    .get("category_total", {})
-                                    .get(key, 0)
-                                    + val
+                                    results[year_month][category].get("category_total", {}).get(key, 0) + val
                                 )
                                 results[year_month][category][task][key] = (
-                                    results[year_month][category][task].get(key, 0)
-                                    + val
+                                    results[year_month][category][task].get(key, 0) + val
                                 )
                             except TypeError:
                                 print(
@@ -55,9 +48,7 @@ class MonthlyAggregation(AggregationStrategy):
                     html += '<th class="level' + str(depth + 2) + '">' + key + "</th>"
                 html += "</tr><tr>"
                 for key in ["plan", "done"]:
-                    html += (
-                        "<td>" + str(data.get(key, 0)) + "</td>"
-                    )  # Use get method to avoid KeyError
+                    html += "<td>" + str(data.get(key, 0)) + "</td>"  # Use get method to avoid KeyError
                 html += "</tr></tbody></table>"
             else:
                 html = "<table><tbody>"

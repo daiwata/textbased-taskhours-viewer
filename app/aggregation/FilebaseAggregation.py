@@ -13,14 +13,10 @@ class FilebaseAggregation(AggregationStrategy):
                         for key, val in task_data.items():
                             try:
                                 results[file_name]["file_total"][key] = (
-                                    results[file_name].get("file_total", {}).get(key, 0)
-                                    + val
+                                    results[file_name].get("file_total", {}).get(key, 0) + val
                                 )
                                 results[file_name][category]["category_total"][key] = (
-                                    results[file_name][category]
-                                    .get("category_total", {})
-                                    .get(key, 0)
-                                    + val
+                                    results[file_name][category].get("category_total", {}).get(key, 0) + val
                                 )
                                 results[file_name][category][task][key] = (
                                     results[file_name][category][task].get(key, 0) + val
@@ -44,9 +40,7 @@ class FilebaseAggregation(AggregationStrategy):
                     html += '<th class="level' + str(depth + 2) + '">' + key + "</th>"
                 html += "</tr><tr>"
                 for key in ["plan", "done"]:
-                    html += (
-                        "<td>" + str(data.get(key, 0)) + "</td>"
-                    )  # Use get method to avoid KeyError
+                    html += "<td>" + str(data.get(key, 0)) + "</td>"  # Use get method to avoid KeyError
                 html += "</tr></tbody></table>"
             else:
                 html = "<table><tbody>"

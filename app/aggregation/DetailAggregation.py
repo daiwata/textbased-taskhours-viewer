@@ -13,12 +13,22 @@ class DetailAggregation(AggregationStrategy):
                     for task, task_data in tasks.items():
                         for key, val in task_data.items():
                             try:
-                                results[file_name]["file_total"][key] = results[file_name].get("file_total", {}).get(key, 0) + val
-                                results[file_name][date]["day_total"][key] = results[file_name][date].get("day_total", {}).get(key, 0) + val
-                                results[file_name][date][category]["category_total"][key] = results[file_name][date].get("category_total", {}).get(key, 0) + val
-                                results[file_name][date][category][task][key] = results[file_name][date][category].get(key, 0) + val
+                                results[file_name]["file_total"][key] = (
+                                    results[file_name].get("file_total", {}).get(key, 0) + val
+                                )
+                                results[file_name][date]["day_total"][key] = (
+                                    results[file_name][date].get("day_total", {}).get(key, 0) + val
+                                )
+                                results[file_name][date][category]["category_total"][key] = (
+                                    results[file_name][date].get("category_total", {}).get(key, 0) + val
+                                )
+                                results[file_name][date][category][task][key] = (
+                                    results[file_name][date][category].get(key, 0) + val
+                                )
                             except TypeError:
-                                print(f"Error with file_name={file_name}, date={date}, category={category}, task={task}, key={key}, val={val}")
+                                print(
+                                    f"Error with file_name={file_name}, date={date}, category={category}, task={task}, key={key}, val={val}"
+                                )
                                 raise
         return results
 
@@ -54,7 +64,15 @@ class DetailAggregation(AggregationStrategy):
                 for key in keys:
                     val = data[key]
                     html += '<tr class="total">' if "_total" in key else "<tr>"
-                    html += '<th class="level' + str(depth + 1) + '">' + str(key) + "</th><td>" + self.to_html(val, depth + 1) + "</td></tr>"
+                    html += (
+                        '<th class="level'
+                        + str(depth + 1)
+                        + '">'
+                        + str(key)
+                        + "</th><td>"
+                        + self.to_html(val, depth + 1)
+                        + "</td></tr>"
+                    )
                 html += "</tbody></table>"
             return html
         else:

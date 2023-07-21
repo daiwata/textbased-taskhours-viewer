@@ -89,9 +89,7 @@ if os.path.exists(OUTJSON_PATH):
     os.remove(OUTJSON_PATH)
 
 # Start the watcher thread
-threading.Thread(
-    target=watch_folder, args=(os.path.join(os.getcwd(), "input"),), daemon=True
-).start()
+threading.Thread(target=watch_folder, args=(os.path.join(os.getcwd(), "input"),), daemon=True).start()
 
 # Start the app
 eel.start("index.html")
