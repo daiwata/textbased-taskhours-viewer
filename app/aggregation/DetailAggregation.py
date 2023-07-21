@@ -20,7 +20,7 @@ class DetailAggregation(AggregationStrategy):
                                     results[file_name][date].get("day_total", {}).get(key, 0) + val
                                 )
                                 results[file_name][date][category]["category_total"][key] = (
-                                    results[file_name][date].get("category_total", {}).get(key, 0) + val
+                                    results[file_name][date][category].get("category_total", {}).get(key, 0) + val
                                 )
                                 results[file_name][date][category][task][key] = (
                                     results[file_name][date][category].get(key, 0) + val
