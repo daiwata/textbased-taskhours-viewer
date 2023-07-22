@@ -29,32 +29,21 @@ class FilebaseAggregation(AggregationStrategy):
         return results
 
     def to_html(self, data, depth=0):
-        """
-        Generate HTML from the filebase aggregated data dictionary.
-        """
         if isinstance(data, dict):
             if "plan" in data.keys() or "done" in data.keys():
-                # If 'plan' and 'done' are keys, transpose the row
                 html = "<table><tbody><tr>"
                 for key in ["plan", "done"]:
-                    html += '<th class="level' + str(depth + 2) + '">' + key + "</th>"
+                    html += f'<th class="level{depth + 2}">{key}</th>'
                 html += "</tr><tr>"
                 for key in ["plan", "done"]:
-                    html += "<td>" + str(data.get(key, 0)) + "</td>"  # Use get method to avoid KeyError
+                    html += f"<td>{data.get(key, 0)}</td>"
                 html += "</tr></tbody></table>"
             else:
                 html = "<table><tbody>"
                 for key, val in data.items():
-                    html += '<tr class="total">' if "_total" in key else "<tr>"
-                    html += (
-                        '<th class="level'
-                        + str(depth + 1)
-                        + '">'
-                        + str(key)
-                        + "</th><td>"
-                        + self.to_html(val, depth + 1)
-                        + "</td></tr>"
-                    )
+                    tr_class = '<tr class="total">' if "_total" in key else "<tr>"
+                    html += f'{tr_class}<th class="level{depth + 1}">{key}</th>'
+                    html += f"<td>{self.to_html(val, depth + 1)}</td></tr>"
                 html += "</tbody></table>"
             return html
         else:

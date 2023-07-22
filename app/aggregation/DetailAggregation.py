@@ -33,46 +33,34 @@ class DetailAggregation(AggregationStrategy):
         return results
 
     def to_html(self, data, depth=0):
-        # conv_detail.py の内容
-
-        """
-        Generate HTML from the detailed aggregated data dictionary.
-        """
         if isinstance(data, dict):
             if "plan" in data.keys() or "done" in data.keys():
                 html = "<table><tbody><tr>"
                 for key in ["plan", "done"]:
-                    html += '<th class="level' + str(depth + 2) + '">' + key + "</th>"
+                    html += f'<th class="level{depth + 2}">{key}</th>'
                 html += "</tr><tr>"
                 for key in ["plan", "done"]:
-                    html += "<td>" + str(data.get(key, 0)) + "</td>"  # Use get method to avoid KeyError
+                    html += f"<td>{data.get(key, 0)}</td>"  # Use get method to avoid KeyError
                 html += "</tr></tbody></table>"
             else:
                 html = "<table><tbody>"
-                # Separate date keys and other keys
                 date_keys = [key for key in data.keys() if utils.is_date(key)]
                 non_date_keys = [key for key in data.keys() if not utils.is_date(key)]
-                # If there are any date keys, sort them
+
                 if date_keys:
                     date_keys = sorted(
                         date_keys,
                         key=lambda x: datetime.strptime(x, "%Y/%m/%d"),
                         reverse=True,
                     )
-                # Combine keys: non-date keys first, then sorted date keys
                 keys = non_date_keys + date_keys
+
                 for key in keys:
                     val = data[key]
-                    html += '<tr class="total">' if "_total" in key else "<tr>"
-                    html += (
-                        '<th class="level'
-                        + str(depth + 1)
-                        + '">'
-                        + str(key)
-                        + "</th><td>"
-                        + self.to_html(val, depth + 1)
-                        + "</td></tr>"
-                    )
+                    tr_class = '<tr class="total">' if "_total" in key else "<tr>"
+                    html += f'{tr_class}<th class="level{depth + 1}">{key}</th>'
+                    html += f"<td>{self.to_html(val, depth + 1)}</td></tr>"
+
                 html += "</tbody></table>"
             return html
         else:
