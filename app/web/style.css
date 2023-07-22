@@ -18,10 +18,11 @@ td {
 
 th {
   background-color: #eeeeee;
-  padding: 2px 10px;
+  padding: 7px 10px;
   word-break: break-all;
   white-space: pre-wrap;
   max-width: 280px;
+  min-width: 100px;
 }
 
 tr.total td {
@@ -42,24 +43,28 @@ td.total {
 }
 
 th.category_total {
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
   border-right: none;
 }
 
 th.file_total,
 th.monthly_total,
 th.day_total {
-  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
   border-right: none;
 }
 
 table.plandone {
-  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
   margin-left: auto;
 }
 
 th.plandone {
   min-width: 60px;
-  padding: 5px 10px;
+  max-width: 60px;
+  padding: 0px 10px;
   border-right: none;
 }
