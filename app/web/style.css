@@ -4,53 +4,62 @@ th,
 td {
   border-collapse: collapse;
   border: 1px solid #cccccc;
-  padding: 2px;
-  margin: 2px;
+  padding: 2px 0 2px 2px;
+  margin: 2px 0 2px 2px;
   vertical-align: top;
   word-wrap: break-word;
 }
 
 td {
   text-align: center;
+  padding: 0px;
+  background-color: #ffffff;
 }
 
 th {
   background-color: #eeeeee;
-}
-
-th.level0 {
-  min-width: 120px;
-  padding: 5px 10px;
-}
-
-th.level1 {
-  min-width: 70px;
-  padding: 5px 10px;
-}
-
-th.level2 {
-  min-width: 120px;
-  padding: 5px 10px;
-}
-
-th.level3 {
-  min-width: 280px;
+  padding: 2px 10px;
+  word-break: break-all;
+  white-space: pre-wrap;
   max-width: 280px;
-  padding: 5px 10px;
-  text-align: left;
-}
-
-th.level4 {
-  min-width: 60px;
-  padding: 5px 10px;
 }
 
 tr.total td {
   color: black;
   font-weight: bold;
+  border-right: none;
 }
 
 tr.total th {
-  background-color: #dddddd;
+  background-color: #e0e0e0;
   color: black;
+  border-right: none;
+}
+
+td.total {
+  background-color: #e0e0e0;
+  border-left: none;
+}
+
+th.category_total {
+  width: 300px;
+  border-right: none;
+}
+
+th.file_total,
+th.monthly_total,
+th.day_total {
+  width: 150px;
+  border-right: none;
+}
+
+table.plandone {
+  width: 120px;
+  margin-left: auto;
+}
+
+th.plandone {
+  min-width: 60px;
+  padding: 5px 10px;
+  border-right: none;
 }

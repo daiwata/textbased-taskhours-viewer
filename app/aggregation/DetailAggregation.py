@@ -32,15 +32,15 @@ class DetailAggregation(AggregationStrategy):
                                 raise
         return results
 
-    def to_html(self, data, depth=0):
+    def to_html(self, data):
         if isinstance(data, dict):
             if "plan" in data.keys() or "done" in data.keys():
-                html = "<table><tbody><tr>"
+                html = "<table class='plandone'><tbody><tr>"
                 for key in ["plan", "done"]:
-                    html += f'<th class="level{depth + 2}">{key}</th>'
+                    html += f'<th class="plandone">{key}</th>'
                 html += "</tr><tr>"
                 for key in ["plan", "done"]:
-                    html += f"<td>{data.get(key, 0)}</td>"  # Use get method to avoid KeyError
+                    html += f"<td>{data.get(key, 0)}</td>"
                 html += "</tr></tbody></table>"
             else:
                 html = "<table><tbody>"
@@ -57,9 +57,9 @@ class DetailAggregation(AggregationStrategy):
 
                 for key in keys:
                     val = data[key]
-                    tr_class = '<tr class="total">' if "_total" in key else "<tr>"
-                    html += f'{tr_class}<th class="level{depth + 1}">{key}</th>'
-                    html += f"<td>{self.to_html(val, depth + 1)}</td></tr>"
+                    html += f'<tr class="{"total" if "_total" in key else ""}">'
+                    html += f'<th class="{key if "_total" in key else ""}">{key}</th>'
+                    html += f'<td class="{"total" if "_total" in key else ""}">{self.to_html(val)}</td></tr>'
 
                 html += "</tbody></table>"
             return html
