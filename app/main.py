@@ -54,11 +54,7 @@ def get_current_html():
 
 # This function will run in a separate thread
 def watch_folder(folder_path):
-    strategies = {
-        "detail_aggregated": AggregationContext(DetailAggregation()),
-        "filebase_aggregated": AggregationContext(FilebaseAggregation()),
-        "monthly_aggregated": AggregationContext(MonthlyAggregation()),
-    }
+    strategies = AggregationFactory.create_strategies()
 
     while True:
         outJson = aggr.analyzeTxt()
