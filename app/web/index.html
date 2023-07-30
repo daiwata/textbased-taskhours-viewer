@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        eel.expose(FilebaseAggregation);
+        eel.expose(filebase_aggregated);
         function filebase_aggregated(content) {
             document.getElementById('filebase-aggregated-content').innerHTML = content;
         }
-        eel.expose(MonthlyAggregation);
+        eel.expose(monthly_aggregated);
         function monthly_aggregated(content) {
             document.getElementById('monthly-aggregated-content').innerHTML = content;
         }
-        eel.expose(DetailAggregation);
+        eel.expose(detail_aggregated);
         function detail_aggregated(content) {
             document.getElementById('detail-content').innerHTML = content;
         }
@@ -24,9 +24,9 @@
     <script type="text/javascript">
         window.onload = function () {
             eel.get_current_html()(function (current_html) {
-                detail_aggregated(current_html["DetailAggregation"]);
-                filebase_aggregated(current_html["FilebaseAggregation"]);
-                monthly_aggregated(current_html["MonthlyAggregation"]);
+                detail_aggregated(current_html["detail_aggregated"]);
+                filebase_aggregated(current_html["filebase_aggregated"]);
+                monthly_aggregated(current_html["monthly_aggregated"]);
             });
         };
     </script>

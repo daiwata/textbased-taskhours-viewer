@@ -5,14 +5,17 @@ import time
 import json
 import sys
 import aggr
-from aggregation.AggregationFactory import AggregationFactory
+from aggregation.AggregationContext import AggregationContext
+from aggregation.DetailAggregation import DetailAggregation
+from aggregation.MonthlyAggregation import MonthlyAggregation
+from aggregation.FilebaseAggregation import FilebaseAggregation
 
 DATA_CONFS = json.load(open("settings.json", "r", encoding="utf-8"))
 OUTJSON_PATH = "output/out.json"
 current_html = {
-    "DetailAggregation": "",
-    "FilebaseAggregation": "",
-    "MonthlyAggregation": "",
+    "detail_aggregated": "",
+    "filebase_aggregated": "",
+    "monthly_aggregated": "",
 }
 
 
@@ -54,7 +57,11 @@ def get_current_html():
 
 # This function will run in a separate thread
 def watch_folder(folder_path):
-    strategies = AggregationFactory.create_strategies()
+    strategies = {
+        "detail_aggregated": AggregationContext(DetailAggregation()),
+        "filebase_aggregated": AggregationContext(FilebaseAggregation()),
+        "monthly_aggregated": AggregationContext(MonthlyAggregation()),
+    }
 
     while True:
         outJson = aggr.analyzeTxt()
