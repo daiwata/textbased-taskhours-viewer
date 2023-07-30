@@ -5,17 +5,14 @@ import time
 import json
 import sys
 import aggr
-from aggregation.AggregationContext import AggregationContext
-from aggregation.DetailAggregation import DetailAggregation
-from aggregation.MonthlyAggregation import MonthlyAggregation
-from aggregation.FilebaseAggregation import FilebaseAggregation
+from aggregation.AggregationFactory import AggregationFactory
 
 DATA_CONFS = json.load(open("settings.json", "r", encoding="utf-8"))
 OUTJSON_PATH = "output/out.json"
 current_html = {
-    "detail_aggregated": "",
-    "filebase_aggregated": "",
-    "monthly_aggregated": "",
+    "DetailAggregation": "",
+    "FilebaseAggregation": "",
+    "MonthlyAggregation": "",
 }
 
 
