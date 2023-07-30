@@ -1,7 +1,7 @@
 from aggregation.AggregationStrategy import AggregationStrategy
 
 
-class Aggregator:
+class AggregationContext:
     def __init__(self, strategy: AggregationStrategy):
         self._strategy = strategy
 
